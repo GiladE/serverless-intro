@@ -1,0 +1,28 @@
+# https://github.com/serverless/serverless-starter/blob/master/.gitignore
+logs
+*.log
+npm-debug.log
+pids
+*.pid
+*.seed
+dist
+lib-cov
+coverage
+.grunt
+.lock-wscript
+build/Release
+node_modules
+**/.idea
+.DS_Store
+.tmp
+admin.env
+.env
+_meta
+.serverless
+
+# py
+__pycache__
+
+# demo
+aws_creds
+venv

@@ -1,0 +1,7 @@
+aws-lambda-powertools==2.37.0
+cmdkit==2.7.5
+jmespath==1.0.1
+names_generator==0.2.0
+PyYAML==6.0.1
+toml==0.10.2
+typing_extensions==4.11.0
