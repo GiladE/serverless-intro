@@ -1,46 +1,20 @@
-service: getName
+service: demo
 
 provider:
   name: aws
   deploymentMethod: direct
   stage: dev
-  region: af-south-1
-  runtime: python3.10
-  timeout: 29
-  layers:
-    - Ref: PythonRequirementsLambdaLayer
+  region: eu-west-1
   tracing:
     apiGateway: true
-  tags:
-    ENVIRONMENT: dev
-
-useDotenv: true
-
-custom:
-  pythonRequirements:
-    dockerizePip: non-linux
-    layer: true
 
 functions:
-  getName:
-    handler: src/api/getName.handler
+  demo:
+    image:
+      uri: 061379176831.dkr.ecr.eu-west-1.amazonaws.com/demo:latest
+      command:
+        - 'helloworld.App::handleRequest'
     events:
       - http:
-          path: /name
+          path: /howdy
           method: get
-
-  getNameWithPrefix:
-    handler: src/api/getNameWithPrefix.handler
-    events:
-      - http:
-          path: /name/{prefix}
-          method: get
-
-package:
-  patterns:
-    - '!**'
-    - 'src/**'
-
-plugins:
-  - serverless-python-requirements
-  - serverless-offline
